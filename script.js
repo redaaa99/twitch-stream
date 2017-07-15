@@ -7,7 +7,8 @@ var statu="";
 var nam="";
 var page="";
 var url ='https://wind-bow.glitch.me/twitch-api/channels/';
-for (var i = 0; i < users.length; i++) {
+i=0;
+timer = setInterval(function(){
 	// for steams
 	$.getJSON(url+users[i],function(data){
 		if(data.status=='404')
@@ -57,8 +58,12 @@ for (var i = 0; i < users.length; i++) {
 	 nam="";
 	});
 
-	
-};
+	i++;
+  if(i==9)
+    {
+      clearInterval(timer);
+    }
+},500);
 
 
 $('.can-toggle__switch').click(function(){
